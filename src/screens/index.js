@@ -10,6 +10,8 @@ import Feed from './feed';
 import Favorites from './favourites';
 import MyBooks from './mybooks';
 import BookScreen from './book';
+import SignUp from './signup';
+
 //stacked navivator
 const FeedStack = createStackNavigator({
     Feed: Feed,
@@ -25,7 +27,8 @@ const FavoritesStack = createStackNavigator({
 });
    
 const AuthStack = createStackNavigator({
-    SignIn: SignIn
+    SignIn: SignIn,
+    SignUp: SignUp
 });
 const SettingsStack = createStackNavigator({
     Settings: Settings

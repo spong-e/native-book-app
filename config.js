@@ -8,7 +8,7 @@ if (Constants.manifest.debuggerHost) {
 }
 const ENV = {
     dev: {
-        API_URL: `http://${localhost? localhost: 'localhost'}:4000/api`
+        API_URL: `http://192.1.168.36:4000/api`
     },
     prod: {
         API_URL: 'https://jonesa4-gqlapi.herokuapp.com/api'
@@ -16,12 +16,10 @@ const ENV = {
 };
    
 const getEnvVars = (env = Constants.manifest.releaseChannel) => {
-    console.log('here...', __DEV__, ENV)
+   
     // __DEV__ is set to true when react-native is running locally in dev mode
     // __DEV__ is set to false when our app is published
-    
     if (__DEV__) {
-        console.log(ENV.dev)
         return ENV.dev;
     } else if (env === 'prod') {
         return ENV.prod;

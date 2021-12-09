@@ -1,8 +1,7 @@
 import React from 'react';
+import { Text, View } from 'react-native';
 import { useQuery, gql } from '@apollo/client';
-import { Text, View,  Button} from 'react-native';
 import BookFeed from '../components/BookFeed';
-
 const GET_BOOKS = gql`
     query books {
         books {
@@ -17,17 +16,17 @@ const GET_BOOKS = gql`
         }
     }
 `;
-
 const Feed = props => {
-    const { loading, error, data } = useQuery(GET_BOOKS);
-        console.log(data)
-        if (loading) return <Text>Loading</Text>;
-        if (error) return <Text>Error loading books feed</Text>;
-    return (
-            <BookFeed books={data.books} navigation={props.navigation} />
-        );
-    };
-//screen title
+const { loading, error, data } = useQuery(GET_BOOKS);
+    console.log("Error: ", error)
+    console.log("data: ", data)
+    
+    if (loading) return <Text>Loading...</Text>;
+    if (error) return <Text>Error loading books feed </Text>;
+return (
+        <BookFeed books={data.books} navigation={props.navigation} />
+    );
+};
 Feed.navigationOptions = {
     title: 'Feed'
 };
